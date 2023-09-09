@@ -7,8 +7,8 @@ function getRandomID() {
 function AJAXexample() {
   // Create a new XMLHttpRequest object
   const id = getRandomID();
-  const url = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0";
-  console.log(url);
+  const url = "https://pokeapi.co/api/v2/pokemon/" + id;
+  //console.log(url);
   var xhr = new XMLHttpRequest();
 
   // Configure the request (GET request to a JSON endpoint)
@@ -19,11 +19,12 @@ function AJAXexample() {
     if (xhr.status === 200) {
       // Parse the JSON response
       var responseData = JSON.parse(xhr.responseText);
-      console.log(responseData);
-      console.log(responseData.results);
-      console.log(responseData.results[0]);
-      console.log(responseData.results[3]);
-      console.log(responseData.results[5].name); //Saber nombre
+      console.log(responseData); //Todos los datos en la consola
+      //console.log(responseData.abilities[0].ability.name); //Nombre y Habilidades
+      document.getElementById("nombrePokemon").innerText=responseData.name.toUpperCase()
+      document.getElementById("habilidadPokemon").innerText=responseData.abilities[0].ability.name.toUpperCase()
+      document.getElementById("expPokemon").innerText=responseData.base_experience
+      document.getElementById("imgPokemon").src=responseData['sprites']['other']['official-artwork']['front_shiny']
 
       // Acá se asignaría la información al HTML
     } else {
@@ -34,5 +35,9 @@ function AJAXexample() {
   // Send the request
   xhr.send();
 }
+//Llamar a la funcion
+document.getElementById("obtenerPokemon").addEventListener('click', function(){
+  AJAXexample();
+})
 
 AJAXexample();
