@@ -5,9 +5,9 @@ function getRandomID() {
 }
 
 function AJAXexample() {
-  // Create a new XMLHttpRequest object
+  // Create a new XMLHttpRequest object --> Objeto que se va a encargar de hacer la solicitud
   const id = getRandomID();
-  const url = "https://swapi.dev/api/people/" + id;
+  const url = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0";
   console.log(url);
   var xhr = new XMLHttpRequest();
 
@@ -20,6 +20,10 @@ function AJAXexample() {
       // Parse the JSON response
       var responseData = JSON.parse(xhr.responseText);
       console.log(responseData);
+      console.log(responseData.results);
+      console.log(responseData.results[0]);
+      console.log(responseData.results[3]);
+      console.log(responseData.results[5].name); //Saber nombre
 
       // Acá se asignaría la información al HTML
     } else {
