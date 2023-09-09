@@ -1,6 +1,6 @@
 function getRandomID() {
   const randomDecimal = Math.random();
-  const randomInRange = randomDecimal * (50 - 1) + 1;
+  const randomInRange = randomDecimal * (100 - 1) + 1;
   return Math.floor(randomInRange);
 }
 
@@ -119,6 +119,10 @@ function AJAXnaruto() {
       var responseData = JSON.parse(xhr.responseText);
       console.log(responseData);
       setInnerText("nombreNaruto", responseData.name);
+      setInnerText("generoNaruto", responseData.personal.sex);
+      setInnerText("ocupacionNaruto", responseData.personal.occupation);
+      console.log(responseData.images[0]);
+      document.getElementById("imagenNaruto").src = responseData.images[0];
     } else {
       console.error("Request failed with status:", xhr.status);
     }
