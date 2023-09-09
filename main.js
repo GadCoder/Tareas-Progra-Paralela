@@ -5,7 +5,7 @@ function getRandomID() {
 }
 
 function AJAXexample() {
-  // Create a new XMLHttpRequest object --> Objeto que se va a encargar de hacer la solicitud
+  // Create a new XMLHttpRequest object
   const id = getRandomID();
   const url = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0";
   console.log(url);
