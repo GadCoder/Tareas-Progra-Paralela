@@ -31,7 +31,7 @@ function AJAXexample() {
   xhr.send();
 }
 
-function AJAXpokemon() {
+function AJAXpokemon() {    
   // Create a new XMLHttpRequest object
   const id = getRandomID();
   const url = "https://pokeapi.co/api/v2/pokemon/" + id;
@@ -67,7 +67,6 @@ function AJAXpokemon() {
   xhr.send();
 }
 
-<<<<<<< HEAD
 function setInnerText(elementID, innerText) {
   const element = document.getElementById(elementID);
   element.innerText = innerText;
@@ -78,20 +77,17 @@ function AJAXstarwars() {
   const id = getRandomID();
   const url = "https://swapi.dev/api/people/" + id;
   //console.log(url);
-=======
 
 
 function AJAXdigimon() {
   // Create a new XMLHttpRequest object
   const id = getRandomID();
   const url = "https://digimon-api.com/api/v1/digimon/" + id;
->>>>>>> 7ec1893d0787923c26f5d452f1d83633bed052be
   var xhr = new XMLHttpRequest();
 
   // Configure the request (GET request to a JSON endpoint)
   xhr.open("GET", url, true);
 
-<<<<<<< HEAD
   // Define the callback function to handle the response
   xhr.onload = function () {
     if (xhr.status === 200) {
@@ -106,7 +102,6 @@ function AJAXdigimon() {
         responseData.base_experience;
       document.getElementById("imgPokemon").src =
         responseData["sprites"]["other"]["official-artwork"]["front_shiny"];
-=======
   console.log(url);
   // Define the callback function to handle the response
   xhr.onload = function () {
@@ -119,39 +114,21 @@ function AJAXdigimon() {
       document.getElementById("tipoDigimon").innerText = responseData.types[0].type
       document.getElementById("habilidadDigimon").innerText = responseData.skills[0].skill
       document.getElementById("imagenDigimon").src = responseData.images[0].href
->>>>>>> 7ec1893d0787923c26f5d452f1d83633bed052be
 
       // Acá se asignaría la información al HTML
     } else {
       console.error("Request failed with status:", xhr.status);
     }
-<<<<<<< HEAD
   };
 
   // Send the request
   xhr.send();
 }
 
+}
+}
+
 document.getElementById("obtenerPersonajes").addEventListener("click", () => {
   AJAXstarwars();
   AJAXpokemon();
-});
-=======
-  }
-}
-
-//Llamar a la funcion
-document
-  .getElementById("obtenerPokemon")
-  .addEventListener("click", function () {
-    AJAXpokemon();
-  });
-
-
-//Llamar a la funcion
-document
-  .getElementById("obtenerDigimon")
-  .addEventListener("click", function () {
-    AJAXdigimon();
-  });
->>>>>>> 7ec1893d0787923c26f5d452f1d83633bed052be
+})
