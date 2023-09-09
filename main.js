@@ -31,7 +31,7 @@ function AJAXexample() {
   xhr.send();
 }
 
-function AJAXpokemon() {    
+function AJAXpokemon() {
   // Create a new XMLHttpRequest object
   const id = getRandomID();
   const url = "https://pokeapi.co/api/v2/pokemon/" + id;
@@ -76,8 +76,28 @@ function AJAXstarwars() {
   // Create a new XMLHttpRequest object
   const id = getRandomID();
   const url = "https://swapi.dev/api/people/" + id;
-  //console.log(url);
 
+  var xhr = new XMLHttpRequest();
+
+  // Configure the request (GET request to a JSON endpoint)
+  xhr.open("GET", url, true);
+
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      // Parse the JSON response
+      var responseData = JSON.parse(xhr.responseText);
+      console.log(responseData);
+      setInnerText("nombreStarWars", responseData["name"]);
+      setInnerText("alturaSW", responseData["height"]);
+      setInnerText("pesoSW", responseData["mass"]);
+    } else {
+      console.error("Request failed with status:", xhr.status);
+    }
+  };
+
+  // Send the request
+  xhr.send();
+}
 
 function AJAXdigimon() {
   // Create a new XMLHttpRequest object
@@ -90,30 +110,18 @@ function AJAXdigimon() {
 
   // Define the callback function to handle the response
   xhr.onload = function () {
-    if (xhr.status === 200) {
-      // Parse the JSON response
-      var responseData = JSON.parse(xhr.responseText);
-      console.log(responseData);
-      setInnerText("nombreStarWars", responseData["name"]);
-      setInnerText("alturaSW", responseData["height"]);
-      setInnerText("pesoSW", responseData["mass"]);
-
-      document.getElementById("expPokemon").innerText =
-        responseData.base_experience;
-      document.getElementById("imgPokemon").src =
-        responseData["sprites"]["other"]["official-artwork"]["front_shiny"];
-  console.log(url);
-  // Define the callback function to handle the response
-  xhr.onload = function () {
-    console - log(xhr.status)
+    console.log(xhr.status);
     if (xhr.status === 200) {
       // Parse the JSON response
       var responseData = JSON.parse(xhr.responseText);
       console.log(responseData.name);
-      document.getElementById("nombreDigimon").innerText = responseData.name
-      document.getElementById("tipoDigimon").innerText = responseData.types[0].type
-      document.getElementById("habilidadDigimon").innerText = responseData.skills[0].skill
-      document.getElementById("imagenDigimon").src = responseData.images[0].href
+      document.getElementById("nombreDigimon").innerText = responseData.name;
+      document.getElementById("tipoDigimon").innerText =
+        responseData.types[0].type;
+      document.getElementById("habilidadDigimon").innerText =
+        responseData.skills[0].skill;
+      document.getElementById("imagenDigimon").src =
+        responseData.images[0].href;
 
       // Acá se asignaría la información al HTML
     } else {
@@ -125,10 +133,8 @@ function AJAXdigimon() {
   xhr.send();
 }
 
-}
-}
-
 document.getElementById("obtenerPersonajes").addEventListener("click", () => {
   AJAXstarwars();
   AJAXpokemon();
-})
+  AJAXdigimon();
+});
