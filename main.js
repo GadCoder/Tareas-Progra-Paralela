@@ -85,11 +85,15 @@ function AJAXdigimon() {
     if (xhr.status === 200) {
       // Parse the JSON response
       var responseData = JSON.parse(xhr.responseText);
+      /*
       document.getElementById("nombreDigimon").innerText = responseData.name;
       document.getElementById("tipoDigimon").innerText =
         responseData.types[0].type;
       document.getElementById("habilidadDigimon").innerText =
-        responseData.skills[0].skill;
+        responseData.skills[0].skill;*/
+      setInnerText("nombreDigimon", responseData.name.toUpperCase())
+      setInnerText("tipoDigimon", responseData.types[0].type)
+      setInnerText("habilidadDigimon", responseData.skills[0].skill)
       document.getElementById("imagenDigimon").src =
         responseData.images[0].href;
 
