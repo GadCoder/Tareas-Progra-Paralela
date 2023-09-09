@@ -13,30 +13,39 @@
   </head>
   <body>
     <div class="container">
-      <div class="row border-bottom">
+      <div class="row">
         <h1 style="text-align: center">Progra paralela</h1>
+      </div>
+      <div class="row d-flex justify-content-center mb-5">
+        <button
+          type="button"
+          id="obtenerPersonajes"
+          class="btn btn-primary"
+          style="width: 30%"
+        >
+          Obtener personajes
+        </button>
       </div>
       <div class="row">
         <div class="container col-12 col-md-3">
           <div class="row">
             <h1 style="text-align: center">Star Wars</h1>
           </div>
-          <div class="row d-flex justify-content-center mb-5">
-            <button type="button" class="btn btn-primary" style="width: 50%">
-              Obtener personaje
-            </button>
-          </div>
+
           <div class="row">
             <div class="container border-primary">
               <div class="row">
-                <h2 style="text-align: center">Nombre personaje</h2>
+                <h2 style="text-align: center" id="nombreStarWars">
+                  Nombre personaje
+                </h2>
               </div>
               <div class="row">
                 <h3>Datos</h3>
                 <ul>
-                  <li>Dato 1</li>
-                  <li>Dato 2</li>
-                  <li>Dato 3</li>
+                  <li>Altura: <span id="alturaSW"></span> m</li>
+                  <li>Peso: <span id="pesoSW"></span> kg</li>
+                  <li>Año nacimiento: <span id="cumpleSW"></span> kg</li>
+                  <li>Planeta origen: <span id="planetaSW"></span></li>
                 </ul>
               </div>
             </div>
@@ -45,11 +54,6 @@
         <div class="container col-12 col-md-3">
           <div class="row">
             <h1 style="text-align: center">Naruto</h1>
-          </div>
-          <div class="row d-flex justify-content-center mb-5">
-            <button type="button" class="btn btn-primary" style="width: 50%">
-              Obtener personaje
-            </button>
           </div>
           <div class="row">
             <div class="container border-primary">
@@ -71,11 +75,6 @@
           <div class="row">
             <h1 style="text-align: center">Digimon</h1>
           </div>
-          <div class="row d-flex justify-content-center mb-5">
-            <button type="button" class="btn btn-primary" style="width: 50%">
-              Obtener personaje
-            </button>
-          </div>
           <div class="row">
             <div class="container border-primary">
               <div class="row">
@@ -96,23 +95,20 @@
           <div class="row">
             <h1 style="text-align: center">Pokemon</h1>
           </div>
-          <div class="row d-flex justify-content-center mb-5">
-            <button id = 'obtenerPokemon' type="button" class="btn btn-primary" style="width: 50%">
-              Obtener personaje
-            </button>
-          </div>
           <div class="row">
             <div class="container border-primary">
               <div class="row">
-                <h2 id = 'nombrePokemon' style="text-align: center">Nombre personaje</h2>
+                <h2 id="nombrePokemon" style="text-align: center">
+                  Nombre personaje
+                </h2>
               </div>
               <div class="row">
                 <h3>Datos</h3>
                 <ul>
-                  <li>Habilidas: <span id='habilidadPokemon'></span> </li>
-                  <li>Experiencia Base: <span id='expPokemon'></span> </li>
+                  <li>Habilidas: <span id="habilidadPokemon"></span></li>
+                  <li>Experiencia Base: <span id="expPokemon"></span></li>
                 </ul>
-                <img id='imgPokemon' src="" alt="">
+                <img id="imgPokemon" src="" alt="" />
               </div>
             </div>
           </div>
