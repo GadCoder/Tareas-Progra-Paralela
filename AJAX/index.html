@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarea progra paralela</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container p-3 px-5">
+      <div class="row">
+        <h1 style="text-align: center">Progra paralela</h1>
+      </div>
+      <div class="row d-flex justify-content-center mb-5">
+        <button
+          type="button"
+          id="obtenerPersonajes"
+          class="btn btn-primary"
+          style="width: 30%"
+        >
+          Obtener personajes
+        </button>
+      </div>
+      <div class="row" style="border: 1px solid black">
+        <div class="container col-12 col-md-4">
+          <div class="row">
+            <h1 style="text-align: center">Naruto</h1>
+          </div>
+          <div class="row">
+            <div class="container border-primary">
+              <div class="row">
+                <h2 style="text-align: center" id="nombreNaruto">
+                  Nombre personaje
+                </h2>
+              </div>
+              <div class="row ps-3">
+                <h3>Datos</h3>
+                <ul>
+                  <li>Genero: <span id="generoNaruto"></span></li>
+                  <li>Ocupacion: <span id="ocupacionNaruto"></span></li>
+                </ul>
+                <img id="imagenNaruto" src="" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="container col-12 col-md-4"
+          style="border-left: 1px solid black; border-right: 1px solid black"
+        >
+          <div class="row">
+            <h1 style="text-align: center">Digimon</h1>
+          </div>
+          <div class="row">
+            <div class="container border-primary">
+              <div class="row">
+                <h2 style="text-align: center" id="nombreDigimon">
+                  Nombre personaje
+                </h2>
+              </div>
+              <div class="row ps-3">
+                <h3>Datos</h3>
+                <ul>
+                  <li>Tipo: <span id="tipoDigimon"></span></li>
+                  <li>Habilidad: <span id="habilidadDigimon"></span></li>
+                </ul>
+                <img id="imagenDigimon" src="" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container col-12 col-md-4">
+          <div class="row">
+            <h1 style="text-align: center">Pokemon</h1>
+          </div>
+          <div class="row">
+            <div class="container border-primary">
+              <div class="row">
+                <h2 id="nombrePokemon" style="text-align: center">
+                  Nombre personaje
+                </h2>
+              </div>
+              <div class="row ps-3">
+                <h3>Datos</h3>
+                <ul>
+                  <li>Habilidades: <span id="habilidadPokemon"></span></li>
+                  <li>Experiencia Base: <span id="expPokemon"></span></li>
+                </ul>
+                <img id="imgPokemon" src="" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
