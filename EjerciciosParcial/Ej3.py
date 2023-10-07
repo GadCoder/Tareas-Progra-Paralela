@@ -6,17 +6,17 @@ from matplotlib import pyplot as plt
 
 IMG_PATH = 'img/agumon.jpg' #cambiar path para pruebas
 
-
+#Cargamos imagen
 def load_image(img_path: str):
     img = cv.imread(img_path)
     return img
 
-
+#Dimensiones de la img que usaremos
 def get_image_dimensions(img):
     height, width, channels = img.shape
     return height, width
 
-
+#Mostrar imagen
 def show_image(img):
     plt.imshow(img)
     plt.axis('off')

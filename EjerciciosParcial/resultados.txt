@@ -1,5 +1,5 @@
 Ej1:
-Tiempo de ejecución -> .... (falta probar, hubo errores)
+Tiempo de ejecución -> 0.015s
 
 Ej2:
 Tiempo de ejecución -> 1.08s
