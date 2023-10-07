@@ -37,7 +37,7 @@ def get_quarters(img, height, width):
 
 
 def apply_parallel_filter(img, img_parts, quarter):
-    blur_effect_img = cv.GaussianBlur(img, (35, 35), 0)
+    blur_effect_img = cv.blur(img, (35, 35), 0)
     img_parts[quarter] = blur_effect_img
 
 
@@ -51,7 +51,8 @@ def parallel_filter(img_quarters: dict):
         threads.append(thread)
     for thread in threads:
         thread.join()
-
+    for key in img_parts.keys():
+        print(key)
     top_part = cv.hconcat([img_parts["first"], img_parts["second"]])
     bottom_part = cv.hconcat([img_parts["third"], img_parts["fourth"]])
     final_image = cv.vconcat([top_part, bottom_part])
