@@ -43,7 +43,7 @@ if __name__ == '__main__':
     
     manager = Manager()
     global_list = manager.list()
-    
+    #Realizamos el proceso tomando el tiempo para ver su rendimiento
     start_time = time.time()
     with Pool(processes=4) as pool:
         args = [(imagen, i ,global_list) for i, imagen in enumerate(imagenes)]
