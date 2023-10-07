@@ -39,7 +39,7 @@ def parallel_image_processing(image_path):
         new_img.paste(thread.section, (i * width//4, 0)) 
 
     new_img.save('imagen_procesada.jpg')
-
+#Realizaremos el proceso tomando el tiempo para ver su rendimiento.
 start_time = time.time()
 
 parallel_image_processing('img/tom-jerry.jpg')
