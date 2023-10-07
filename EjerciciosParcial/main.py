@@ -6,7 +6,9 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from fastapi import FastAPI, Request, UploadFile
 
-from filters.tareas import process
+from filters.tareas import tareas_process
+from filters.threads import threads_process
+from filters.sequencial import sequential_process
 
 app = FastAPI()
 
@@ -38,15 +40,20 @@ async def upload_image(image: UploadFile, request: Request):
     with open(os.path.join("static", f"upload_image.{img_extension}"), "wb") as image_file:
         shutil.copyfileobj(image.file, image_file)
 
-    process_times = process(img_extension=img_extension)
+    tareas_times = tareas_process(img_extension=img_extension)
+    threads_time = threads_process(img_extension=img_extension)
+    sequencial_time = sequential_process(img_extension=img_extension)
+
     args = {
         "request": request,
         "image_processed": True,
-        "sequencial_time": process_times["sequencial_time"],
-        "parallel_time": process_times["parallel_time"],
+        "sequencial_time": sequencial_time,
+        "threads_time": threads_time,
+        "tareas_time": tareas_times,
+        "image_uploaded_path": "upload_image." + img_extension,
         "sequencial_img_path": "sequencial_processed_image." + img_extension,
-        "parallel_img_path": "parallel_processed_image." + img_extension,
-        "image_uploaded_path": "upload_image." + img_extension
+        "tareas_img_path": "tareas_processed_image." + img_extension,
+        "threads_img_path": "threads_processed_image." + img_extension
 
     }
     return templates.TemplateResponse(

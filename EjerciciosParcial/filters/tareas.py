@@ -36,11 +36,6 @@ def get_quarters(img, height, width):
     }
 
 
-def sequencial_filter(img):
-    blur_effect_img = cv.GaussianBlur(img, (35, 35), 0)
-    return blur_effect_img
-
-
 def apply_parallel_filter(img, img_parts, quarter):
     blur_effect_img = cv.GaussianBlur(img, (35, 35), 0)
     img_parts[quarter] = blur_effect_img
@@ -63,14 +58,9 @@ def parallel_filter(img_quarters: dict):
     return final_image
 
 
-def process(img_extension):
+def tareas_process(img_extension):
     img_path = IMG_FOLDER + "upload_image." + img_extension
     img = load_image(img_path=img_path)
-
-    start_time = time.time()
-    sequencial_image = sequencial_filter(img)
-    end_time = time.time()
-    sequential_time = round(end_time - start_time, 4)
 
     height, width = get_image_dimensions(img)
     img_quarters = get_quarters(img, height, width)
@@ -79,13 +69,7 @@ def process(img_extension):
     end_time = time.time()
     parallel_time = round(end_time - start_time, 4)
 
-    sequencial_output = IMG_FOLDER + \
-        "sequencial_processed_image." + img_extension
-    parallel_output = IMG_FOLDER + "parallel_processed_image." + img_extension
-    cv.imwrite(sequencial_output, sequencial_image)
+    parallel_output = IMG_FOLDER + "tareas_processed_image." + img_extension
     cv.imwrite(parallel_output, parallel_image)
 
-    return {
-        "sequencial_time": sequential_time,
-        "parallel_time": parallel_time
-    }
+    return parallel_time

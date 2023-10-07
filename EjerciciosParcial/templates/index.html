@@ -75,7 +75,7 @@
 
       {% if image_processed %}
       <div class="row">
-        <div class="container">
+        <div class="col-12 col-md-6">
           <div class="row">
             <h3>Imagen original</h3>
           </div>
@@ -84,40 +84,55 @@
               src="/static/{{image_uploaded_path}}"
               class="img-fluid"
               alt="uploaded image"
-              style="width: 50%"
             />
           </div>
         </div>
-        <div class="row">
-          <div class="col-12 col-md-6">
-            <div class="row">
-              <h3>Imagen secuencial</h3>
-            </div>
-            <div class="row">
-              <h5>Tiempo secuencial: {{sequencial_time}}</h5>
-            </div>
-            <div class="row">
-              <img
-                src="/static/{{sequencial_img_path}}"
-                class="img-fluid"
-                alt="sequencial processed image"
-              />
-            </div>
+        <div class="col-12 col-md-6">
+          <div class="row">
+            <h3>Imagen hecha secuencialmente</h3>
           </div>
-          <div class="col-12 col-md-6">
-            <div class="row">
-              <h3>Imagen paralela</h3>
-            </div>
-            <div class="row">
-              <h5>Tiempo paralelo: {{parallel_time}}</h5>
-            </div>
-            <div class="row">
-              <img
-                src="/static/{{parallel_img_path}}"
-                class="img-fluid"
-                alt="parallel processed image"
-              />
-            </div>
+          <div class="row">
+            <h5>Tiempo: {{sequencial_time}}</h5>
+          </div>
+          <div class="row">
+            <img
+              src="/static/{{sequencial_img_path}}"
+              class="img-fluid"
+              alt="sequencial processed image"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="row">
+            <h3>Imagen hecha con tareas</h3>
+          </div>
+          <div class="row">
+            <h5>Tiempo: {{tareas_time}}</h5>
+          </div>
+          <div class="row">
+            <img
+              src="/static/{{tareas_img_path}}"
+              class="img-fluid"
+              alt="tareas processed image"
+            />
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="row">
+            <h3>Imagen hecha con threads</h3>
+          </div>
+          <div class="row">
+            <h5>Tiempo: {{threads_time}}</h5>
+          </div>
+          <div class="row">
+            <img
+              src="/static/{{threads_img_path}}"
+              class="img-fluid"
+              alt="threads processed image"
+            />
           </div>
         </div>
       </div>
