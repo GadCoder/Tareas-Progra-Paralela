@@ -12,7 +12,7 @@
     <title>Parcial Paralela</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container p-3">
       <div class="row">
         <h1 style="text-align: center">
           Parcial Programación Concurrente y Paralela
@@ -28,12 +28,12 @@
           enctype="multipart/form-data"
         >
           <div class="container">
-            <div class="row">
+            <div class="row d-flex justify-content-center">
               <div class="col-12 col-md-6">
                 <div class="row">
-                  <h3>Subir imagen</h3>
+                  <h3 style="text-align: center">Subir imagen</h3>
                 </div>
-                <div class="row">
+                <div class="row d-flex justify-content-center">
                   <div class="input-group mb-3">
                     <input
                       type="file"
@@ -47,30 +47,21 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12 col-md-6">
-                <div class="row">
-                  <h3>Seleccionar método</h3>
-                </div>
-                <div class="row">
-                  <select
-                    class="form-select"
-                    aria-label="Default select example"
-                  >
-                    <option selected>Tipo de paralelismo</option>
-                    <option value="1">Con hilos</option>
-                    <option value="2">Paralelismo de Datos</option>
-                    <option value="3">Paralelismo de Tareas</option>
-                  </select>
-                </div>
-              </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                style="width: 300px"
+              >
+                Aplicar filtro
+              </button>
             </div>
           </div>
-          <div class="row d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary" style="width: 300px">
-              Aplicar filtro
-            </button>
-          </div>
         </form>
+      </div>
+      <div class="row mt-4 mb-3">
+        <h2 style="text-align: center">Resultados</h2>
       </div>
 
       {% if image_processed %}
@@ -78,6 +69,9 @@
         <div class="col-12 col-md-6">
           <div class="row">
             <h3>Imagen original</h3>
+          </div>
+          <div class="row" style="visibility: hidden">
+            <h5>Tiempo: {{sequencial_time}}</h5>
           </div>
           <div class="row">
             <img
@@ -104,7 +98,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row mt-2">
         <div class="col-12 col-md-6">
           <div class="row">
             <h3>Imagen hecha con tareas</h3>
@@ -136,8 +130,6 @@
           </div>
         </div>
       </div>
-
-      <span class="badge badge-success">Verified</span>
       {% endif %}
     </div>
     <script

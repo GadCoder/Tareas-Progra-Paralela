@@ -16,44 +16,36 @@ class ImageProcessor(threading.Thread):
         threading.Thread.__init__(self)
         self.section = section
 
-    def run(self): 
-        self.section = self.section.filter(ImageFilter.BLUR) 
+    def run(self):
+        # Aplica un filtro a la sección de la imagen
+        self.section = self.section.filter(ImageFilter.BLUR)
 
 
 def parallel_image_processing(image_path):
-    img = Image.open(image_path) 
+    # Abre la imagen
+    img = Image.open(image_path)
 
-    
+    # Divide la imagen en secciones
     width, height = img.size
     sections = [img.crop((w, 0, w + width//4, height))
                 for w in range(0, width, width//4)]
 
-    threads = []  
-    for section in sections: 
-        thread = ImageProcessor(section) 
-        thread.start() 
-        threads.append(thread) 
+    # Crea y comienza los hilos
+    threads = []
+    for section in sections:
+        thread = ImageProcessor(section)
+        thread.start()
+        threads.append(thread)
 
-    
-    for thread in threads: 
-        thread.join() 
+    # Espera a que todos los hilos terminen
+    for thread in threads:
+        thread.join()
 
-    
-    new_img = Image.new('RGB', (width, height)) 
-    for i, thread in enumerate(threads): 
-        new_img.paste(thread.section, (i * width//4, 0)) 
+    # Combina las secciones procesadas
+    new_img = Image.new('RGB', (width, height))
+    for i, thread in enumerate(threads):
+        new_img.paste(thread.section, (i * width//4, 0))
 
-<<<<<<< HEAD:EjerciciosParcial/Ej1.py
-    new_img.save('imagen_procesada.jpg')
-#Realizaremos el proceso tomando el tiempo para ver su rendimiento.
-start_time = time.time()
-
-parallel_image_processing('img/tom-jerry.jpg')
-
-end_time = time.time()
-
-print(f'Tiempo de ejecución: {end_time - start_time} segundos')
-=======
     return new_img
 
 
@@ -72,4 +64,3 @@ def threads_process(img_extension):
     parallel_time = round(end_time - start_time, 4)
 
     return parallel_time
->>>>>>> 396168d4916467452c80d7a92fee670ead313494:EjerciciosParcial/filters/threads.py

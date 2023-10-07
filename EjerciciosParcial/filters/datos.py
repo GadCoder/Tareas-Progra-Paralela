@@ -1,6 +1,11 @@
 #2. Implementa un programa en Python que realice el 
 # procesamiento paralelo de una imagen utilizando Paralelismo de Datos. 
 
+# Correrlo con python datos.py estando dentro de la carpeta filters
+#Los otros ejercicios, crear entorno virtual e instalar las dependencias del archivo requirements.txt
+# Correr en terminal: uvicorn main:app --reload estando en la carpeta EjerciciosParcial
+
+
 import cv2
 import numpy as np
 import os
@@ -28,7 +33,7 @@ def procesar_imagen_paralela(args):
 
 
 if __name__ == '__main__':
-    direct_path = r".\img" #cambiar path para pruebas
+    direct_path = r"..\src\img"
 
     nombre_imagenes = [nombre_imagen for nombre_imagen in os.listdir(direct_path)]
     imagenes = []
@@ -43,7 +48,7 @@ if __name__ == '__main__':
     
     manager = Manager()
     global_list = manager.list()
-    #Realizamos el proceso tomando el tiempo para ver su rendimiento
+    
     start_time = time.time()
     with Pool(processes=4) as pool:
         args = [(imagen, i ,global_list) for i, imagen in enumerate(imagenes)]
