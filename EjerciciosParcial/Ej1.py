@@ -5,6 +5,7 @@
 
 from PIL import Image, ImageFilter #Modulo "Piloow" para manipular las imagenes
 import threading #Modulo para lograr el procesamiento paralelo
+import time
 
 class ImageProcessor(threading.Thread):
     def __init__(self, section):
@@ -43,5 +44,13 @@ def parallel_image_processing(image_path):
     # Guarda la imagen procesada
     new_img.save('processed_image.jpg')
 
+# Registra el tiempo de inicio
+start_time = time.time()
+
 # Llama a la función con la ruta de tu imagen
 parallel_image_processing('img/agumon.jpg')
+# Registra el tiempo de finalización
+end_time = time.time()
+
+# Imprime el tiempo de ejecución
+print(f'Tiempo de ejecución: {end_time - start_time} segundos')
