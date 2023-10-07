@@ -5,6 +5,7 @@ import cv2
 import numpy as np
 import os
 from multiprocessing import Pool, Manager
+import time
 
 def procesar_imagen_paralela(args):
     imagen, i , global_list = args
@@ -39,15 +40,19 @@ if __name__ == '__main__':
             imagenes.append(imagen)
 
 
+    
     manager = Manager()
     global_list = manager.list()
     
+    start_time = time.time()
     with Pool(processes=4) as pool:
         args = [(imagen, i ,global_list) for i, imagen in enumerate(imagenes)]
         pool.map(procesar_imagen_paralela, args)
     
-        
+    end_time = time.time()
+    time_execution = end_time-start_time
     filas = []
+    
     for i in range(0,len(global_list),2):
         fila = np.hstack(global_list[i:i+2])
         filas.append(fila)
@@ -55,3 +60,4 @@ if __name__ == '__main__':
 
     cv2.imshow("imagenes",matriz_imagenes)
     cv2.waitKey(0)
+    print("Time execution: {}".format(time_execution))

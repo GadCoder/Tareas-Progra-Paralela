@@ -9,7 +9,7 @@ def apply_blur_filter(image, start_row, end_row, result):
             blurred_pixel = image.filter(ImageFilter.BLUR).getpixel((x, y))
             result.putpixel((x, y), blurred_pixel)
 
-def parallel_process(image, num_threads=4):
+def parallel_process(image, num_threads=3):
     width, height = image.size
     step = height // num_threads
 
@@ -39,8 +39,8 @@ def parallel_process(image, num_threads=4):
     return final_result
 
 if __name__ == "__main__":
-    input_image_path = "input_image.jpg"
-    output_image_path = "output_image_blur.jpg"
+    input_image_path = "./input_image.jpg"
+    output_image_path = "./output_image_blur.jpg"
 
     original_image = Image.open(input_image_path)
 
