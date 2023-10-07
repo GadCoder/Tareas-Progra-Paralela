@@ -1,8 +1,0 @@
-Ej1:
-Tiempo de ejecución -> 0.015s
-
-Ej2:
-Tiempo de ejecución -> 1.08s
-
-Ej3:
-Tiempo de ejecución -> 0.025s

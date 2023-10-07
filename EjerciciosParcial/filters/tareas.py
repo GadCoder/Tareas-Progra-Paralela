@@ -4,7 +4,7 @@ import cv2 as cv
 from matplotlib import pyplot as plt
 
 
-IMG_PATH = 'img/agumon.jpg'
+IMG_FOLDER = 'static/'
 
 
 def load_image(img_path: str):
@@ -63,28 +63,29 @@ def parallel_filter(img_quarters: dict):
     return final_image
 
 
-def main():
-    img = load_image(img_path=IMG_PATH)
+def process(img_extension):
+    img_path = IMG_FOLDER + "upload_image." + img_extension
+    img = load_image(img_path=img_path)
 
     start_time = time.time()
     sequencial_image = sequencial_filter(img)
     end_time = time.time()
-    sequential_time = end_time - start_time
+    sequential_time = round(end_time - start_time, 4)
 
     height, width = get_image_dimensions(img)
     img_quarters = get_quarters(img, height, width)
     start_time = time.time()
     parallel_image = parallel_filter(img_quarters)
     end_time = time.time()
-    parallel_time = end_time - start_time
+    parallel_time = round(end_time - start_time, 4)
 
-    print(f'Sequencial time: {sequential_time}')
-    print(f'Parallel time: {parallel_time}')
+    sequencial_output = IMG_FOLDER + \
+        "sequencial_processed_image." + img_extension
+    parallel_output = IMG_FOLDER + "parallel_processed_image." + img_extension
+    cv.imwrite(sequencial_output, sequencial_image)
+    cv.imwrite(parallel_output, parallel_image)
 
-    plt.imshow(parallel_image)
-    plt.axis('off')
-    plt.show()
-
-
-if __name__ == "__main__":
-    main()
+    return {
+        "sequencial_time": sequential_time,
+        "parallel_time": parallel_time
+    }
