@@ -4,7 +4,8 @@ import cv2 as cv
 from matplotlib import pyplot as plt
 
 
-IMG_PATH = 'img/agumon.jpg' #cambiar path para pruebas
+IMG_FOLDER = 'static/'
+
 
 #Cargamos imagen
 def load_image(img_path: str):
@@ -36,11 +37,6 @@ def get_quarters(img, height, width):
     }
 
 
-def sequencial_filter(img):
-    blur_effect_img = cv.GaussianBlur(img, (35, 35), 0)
-    return blur_effect_img
-
-
 def apply_parallel_filter(img, img_parts, quarter):
     blur_effect_img = cv.GaussianBlur(img, (35, 35), 0)
     img_parts[quarter] = blur_effect_img
@@ -63,28 +59,18 @@ def parallel_filter(img_quarters: dict):
     return final_image
 
 
-def main():
-    img = load_image(img_path=IMG_PATH)
-
-    start_time = time.time()
-    sequencial_image = sequencial_filter(img)
-    end_time = time.time()
-    sequential_time = end_time - start_time
+def tareas_process(img_extension):
+    img_path = IMG_FOLDER + "upload_image." + img_extension
+    img = load_image(img_path=img_path)
 
     height, width = get_image_dimensions(img)
     img_quarters = get_quarters(img, height, width)
     start_time = time.time()
     parallel_image = parallel_filter(img_quarters)
     end_time = time.time()
-    parallel_time = end_time - start_time
+    parallel_time = round(end_time - start_time, 4)
 
-    print(f'Sequencial time: {sequential_time}')
-    print(f'Parallel time: {parallel_time}')
+    parallel_output = IMG_FOLDER + "tareas_processed_image." + img_extension
+    cv.imwrite(parallel_output, parallel_image)
 
-    plt.imshow(parallel_image)
-    plt.axis('off')
-    plt.show()
-
-
-if __name__ == "__main__":
-    main()
+    return parallel_time
