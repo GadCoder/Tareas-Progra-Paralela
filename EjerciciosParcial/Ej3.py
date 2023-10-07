@@ -4,7 +4,7 @@ import cv2 as cv
 from matplotlib import pyplot as plt
 
 
-IMG_PATH = 'img/agumon.jpg'
+IMG_PATH = 'img/agumon.jpg' #cambiar path para pruebas
 
 
 def load_image(img_path: str):

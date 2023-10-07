@@ -28,7 +28,7 @@ def procesar_imagen_paralela(args):
 
 
 if __name__ == '__main__':
-    direct_path = r".\img"
+    direct_path = r".\img" #cambiar path para pruebas
 
     nombre_imagenes = [nombre_imagen for nombre_imagen in os.listdir(direct_path)]
     imagenes = []
