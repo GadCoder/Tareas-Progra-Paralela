@@ -8,7 +8,7 @@ import java.util.concurrent.*;
 // Clase principal que implementa la suma secuencial y paralela de un vector
 
 public class Main {
-    private static final int NUM_EXECUTIONS = 100;
+    private static final int NUM_EXECUTIONS = 100; //Ejecutar 100 veces
     private static final int NUM_ELEMENTS = 10_000_000;
     private static final int NUM_THREADS = 2;
 
