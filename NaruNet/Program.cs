@@ -26,6 +26,7 @@ namespace NaruNet
             //Publicando Posts
             user2.Tell(new Actions.SendPost("SERÉ HOKAGE, pues ese es mi camino ninja DATEBAYOU"));
             user1.Tell(new Actions.SendPost("Si tan solo fuese una nube"));
+            user3.Tell(new Actions.SendPost("Nunca me quitare mi tapabocas!!!!"));
            
 
             //Siguiendo usuarios
