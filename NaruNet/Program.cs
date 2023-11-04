@@ -16,6 +16,10 @@ namespace NaruNet
             IActorRef user3 = MyActorSystem.ActorOf(Props.Create(() => new User(consoleWriter)), "Kakashi");
             IActorRef user4 = MyActorSystem.ActorOf(Props.Create(() => new User(consoleWriter)), "Gaara");
             IActorRef user5 = MyActorSystem.ActorOf(Props.Create(() => new User(consoleWriter)), "Kabuto");
+            IActorRef user5 = MyActorSystem.ActorOf(Props.Create(() => new User(consoleWriter)), "Tsunade");
+            IActorRef user5 = MyActorSystem.ActorOf(Props.Create(() => new User(consoleWriter)), "Konan");
+            IActorRef user5 = MyActorSystem.ActorOf(Props.Create(() => new User(consoleWriter)), "Minato Namikaze");
+            IActorRef user5 = MyActorSystem.ActorOf(Props.Create(() => new User(consoleWriter)), "Sakura Haruno");
 
             //Enviando mensajes
             user2.Tell(new Actions.SendMessage("Hola qué tal"), user1);
