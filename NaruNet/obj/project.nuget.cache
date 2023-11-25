@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6uBJY+oQMV6w+fTVk+/ea3nom55gb/oi7zd51ZT+6IaCVUDQoyxogvQCQPxdAm8vUXWFwqkAUsI7umBFVTWIzw==",
+  "dgSpecHash": "njqAD5XX2C5AFM3Z6sNB931DttYHbjs0PiCC4xoL5ltJkhlcRKhtwXixSBISzfD8JaPqVl260QF3mEtTnN0qMg==",
   "success": true,
-  "projectFilePath": "E:\\Universidad\\Programacion Paralela\\NaruNet\\NaruNet.csproj",
+  "projectFilePath": "E:\\Universidad\\Programacion Paralela\\Tareas-Progra-Paralela\\NaruNet\\NaruNet.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\akka\\1.5.13\\akka.1.5.13.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.extensions.objectpool\\7.0.10\\microsoft.extensions.objectpool.7.0.10.nupkg.sha512",

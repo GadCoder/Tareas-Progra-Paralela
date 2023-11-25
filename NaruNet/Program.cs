@@ -42,7 +42,7 @@ namespace NaruNet
             user2.Tell(new Actions.GetFollowers());
             user4.Tell(new Actions.GetFollowers());
 
-            //Mostrar lista de usuaris seguidos
+            //Mostrar lista de usuarios seguidos
             user2.Tell(new Actions.GetFollowedUsers());
             user1.Tell(new Actions.GetFollowedUsers());
             

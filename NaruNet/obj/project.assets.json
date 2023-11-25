@@ -634,11 +634,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Universidad\\Programacion Paralela\\NaruNet\\NaruNet.csproj",
+      "projectUniqueName": "E:\\Universidad\\Programacion Paralela\\Tareas-Progra-Paralela\\NaruNet\\NaruNet.csproj",
       "projectName": "NaruNet",
-      "projectPath": "E:\\Universidad\\Programacion Paralela\\NaruNet\\NaruNet.csproj",
+      "projectPath": "E:\\Universidad\\Programacion Paralela\\Tareas-Progra-Paralela\\NaruNet\\NaruNet.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "E:\\Universidad\\Programacion Paralela\\NaruNet\\obj\\",
+      "outputPath": "E:\\Universidad\\Programacion Paralela\\Tareas-Progra-Paralela\\NaruNet\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
