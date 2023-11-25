@@ -16,6 +16,10 @@ namespace NaruNet
             IActorRef user3 = MyActorSystem.ActorOf(Props.Create(() => new User(consoleWriter)), "Kakashi");
             IActorRef user4 = MyActorSystem.ActorOf(Props.Create(() => new User(consoleWriter)), "Gaara");
             IActorRef user5 = MyActorSystem.ActorOf(Props.Create(() => new User(consoleWriter)), "Kabuto");
+            IActorRef user5 = MyActorSystem.ActorOf(Props.Create(() => new User(consoleWriter)), "Tsunade");
+            IActorRef user5 = MyActorSystem.ActorOf(Props.Create(() => new User(consoleWriter)), "Konan");
+            IActorRef user5 = MyActorSystem.ActorOf(Props.Create(() => new User(consoleWriter)), "Minato Namikaze");
+            IActorRef user5 = MyActorSystem.ActorOf(Props.Create(() => new User(consoleWriter)), "Sakura Haruno");
 
             //Enviando mensajes
             user2.Tell(new Actions.SendMessage("Hola qué tal"), user1);
@@ -26,6 +30,7 @@ namespace NaruNet
             //Publicando Posts
             user2.Tell(new Actions.SendPost("SERÉ HOKAGE, pues ese es mi camino ninja DATEBAYOU"));
             user1.Tell(new Actions.SendPost("Si tan solo fuese una nube"));
+            user3.Tell(new Actions.SendPost("Nunca me quitare mi tapabocas!!!!"));
            
 
             //Siguiendo usuarios
